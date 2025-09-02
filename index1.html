@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikkah Anniversary - Sumaya Khalil</title>
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #000;
+      overflow-x: hidden;
+      scroll-behavior: smooth; /* Smooth scroll */
+    }
+
+    /* ====== Header ====== */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url("bg.jpg") no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden; /* Needed for floating hearts */
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #bfa14a;
+      text-shadow: 2px 2px 8px black;
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-top: 15px;
+    }
+
+    .btn-custom {
+      background-color: #bfa14a;
+      color: black;
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: 600;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .btn-custom:hover {
+      background-color: black;
+      color: #bfa14a;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(191, 161, 74, 0.4);
+    }
+    .btn-custom:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 490%;
+      width: 140%;
+      background: rgba(255, 255, 255, 0.2);
+      -webkit-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out;
+      -webkit-transform: translateX(-100%) translateY(-25%) rotate(45deg);
+      transform: translateX(-100%) translateY(-25%) rotate(45deg);
+      z-index: -1;
+    }
+    .btn-custom:hover:after {
+      -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+      transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    }
+
+    /* ====== Floating Elements ====== */
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 1.5rem;
+      color: #bfa14a;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.8;
+      z-index: 0;
+    }
+    .flower {
+      position: absolute;
+      bottom: -50px;
+      font-size: 1.2rem;
+      color: #bfa14a;
+      animation: floatUp 10s linear infinite;
+      opacity: 0.7;
+      z-index: 0;
+    }
+    .sparkle {
+      position: absolute;
+      font-size: 1rem;
+      color: #fff;
+      animation: sparkleFloat 6s linear infinite;
+      opacity: 0;
+      z-index: 0;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.3) rotate(360deg); opacity: 0; }
+    }
+    @keyframes sparkleFloat {
+      0% { transform: translateY(0) scale(0.5); opacity: 0; }
+      20% { opacity: 1; }
+      40% { transform: translateY(-40vh) scale(1.2); }
+      60% { opacity: 1; }
+      100% { transform: translateY(-110vh) scale(0.8); opacity: 0; }
+    }
+
+    /* ====== Photo Frame with Glow ====== */
+    .photo-frame {
+      border: 6px solid #bfa14a;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(191,161,74,0.7);
+      margin: 30px auto;
+      max-width: 600px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .photo-frame:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #bfa14a 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1;
+    }
+    .photo-frame:hover:before {
+      opacity: 0.2;
+    }
+    .photo-frame:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 35px rgba(191,161,74,0.9);
+    }
+    .photo-frame img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .photo-frame:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ====== Section Titles ====== */
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 40px;
+      padding-bottom: 15px;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(to right, transparent, #bfa14a, transparent);
+      bottom: 0;
+      left: 20%;
+    }
+
+    /* ====== Timeline ====== */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #bfa14a;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      box-shadow: 0 0 10px rgba(191, 161, 74, 0.5);
+    }
+    .timeline-item {
+      padding: 20px;
+      position: relative;
+      width: 50%;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .timeline-item.left { left: 0; }
+    .timeline-item.right { left: 50%; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: black;
+      border: 4px solid #bfa14a;
+      z-index: 1;
+      box-shadow: 0 0 15px rgba(191, 161, 74, 0.8);
+    }
+    .timeline-item.left::before { right: -17px; }
+    .timeline-item.right::before { left: -17px; }
+    .timeline-content {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      border: 2px solid #bfa14a;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+    }
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(248, 248, 248, 0.989);
+    }
+
+    /* ====== Gallery ====== */
+    .gallery img {
+      border-radius: 15px;
+      border: 3px solid #bfa14a;
+      box-shadow: 0 0 15px rgba(191,161,74,0.7);
+      transition: all 0.3s;
+      position: relative;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(191,161,74,0.9);
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: white;
+      padding: 20px 10px 10px;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    /* ====== Love Quote ====== */
+    .love-quote {
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                  url('https://images.unsplash.com/photo-1534308983490-528d0cb4b6fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      position: relative;
+      padding: 100px 0;
+    }
+    .love-quote:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100' opacity='0.1'%3E%3Cpath d='M50,30 C60,20 75,20 85,30 C95,40 95,55 85,65 C75,75 60,75 50,65 C40,75 25,75 15,65 C5,55 5,40 15,30 C25,20 40,20 50,30 Z' fill='%23bfa14a'/%3E%3C/svg%3E");
+      background-size: 200px;
+      opacity: 0.3;
+    }
+    .quote-icon {
+      font-size: 3rem;
+      color: #bfa14a;
+      margin-bottom: 20px;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* ====== Progress Bar Animation ====== */
+    .progress-bar-container {
+      width: 100%;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      margin: 20px 0;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .progress-bar {
+      height: 20px;
+      background: linear-gradient(90deg, #bfa14a, #d4c37c);
+      border-radius: 10px;
+      width: 0;
+      transition: width 2s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-bar:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-image: linear-gradient(
+        -45deg, 
+        rgba(255, 255, 255, 0.2) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0.2) 75%, 
+        transparent 75%, 
+        transparent
+      );
+      z-index: 1;
+      background-size: 50px 50px;
+      animation: move 2s linear infinite;
+      border-radius: 10px;
+    }
+    @keyframes move {
+      0% { background-position: 0 0; }
+      100% { background-position: 50px 50px; }
+    }
+
+    /* ====== Countdown Timer ====== */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    .countdown-item {
+      background: rgba(191, 161, 74, 0.1);
+      border: 2px solid #bfa14a;
+      border-radius: 10px;
+      padding: 15px;
+      min-width: 80px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .countdown-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #bfa14a;
+      margin-bottom: 5px;
+    }
+    .countdown-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      background: black;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: relative;
+    }
+    footer:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #bfa14a, transparent);
+    }
+    footer span {
+      color: #bfa14a;
+    }
+    .footer-heart {
+      color: #e74c3c;
+      animation: heartbeat 1.5s infinite;
+      display: inline-block;
+    }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      5% { transform: scale(1.2); }
+      10% { transform: scale(1.1); }
+      15% { transform: scale(1.3); }
+      50% { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
+
+    /* ====== Cursor Effects ====== */
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #bfa14a;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    .cursor-outline {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #bfa14a;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease-in-out;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Background Music -->
+  <audio autoplay loop hidden id="bgMusic">
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <!-- Music Control -->
+  <div class="music-control" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+    <i class="fas fa-volume-up" style="color: #bfa14a;"></i>
+  </div>
+
+  <!-- Hero Section -->
+  <header>
+    <h1 class="animate__animated animate__fadeInDown">Happy 1st Nikkah Anniversary</h1>
+    <p class="animate__animated animate__fadeInUp">Dedicated to my beloved wife <span style="color:#bfa14a; font-weight:bold;">Sumaya Khalil</span></p>
+    
+    <!-- Countdown Timer -->
+    <div class="countdown animate__animated animate__fadeIn">
+      <div class="countdown-item">
+        <div class="countdown-number" id="days">0</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="hours">0</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="minutes">0</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="seconds">0</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
+    
+    <a href="#memories" class="btn btn-custom mt-4 animate__animated animate__pulse animate__infinite">Explore Memories</a>
+    
+    <!-- Floating Elements -->
+    <div class="hearts"></div>
+    <div class="flowers"></div>
+    <div class="sparkles"></div>
+  </header>
+
+  <!-- Photo Section -->
+  <section id="photo" class="text-center py-5">
+    <div class="container">
+      <h2 class="mb-4 section-title">Our Special Day</h2>
+      <div class="photo-frame animate__animated animate__zoomIn">
+        <img src="nikkah.jpg" alt="Nikkah Photo">
+      </div>
+      <p class="lead mt-4">"Alhamdulillah for the day we became One, bound by Love and Faith Forever."</p>
+      
+      <!-- Love Progress Bars -->
+      <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+          <h4><i class="fas fa-heart" style="color: #bfa14a;"></i> Love Meter</h4>
+          <div class="progress-bar-container">
+            <div class="progress-bar" data-width="100"></div>
+          </div>
+          <p>100% Eternal Love</p>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h4><i class="fas laug-h" style="color: #bfa14a;"></i> Happiness Level</h4>
+          <div class="progress-bar-container">
+            <div class="progress-bar" data-width="100"></div>
+          </div>
+          <p>100% Complete Joy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="memories" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="text-center mb-5 section-title">Our Journey Together</h2>
+      <div class="timeline">
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h4><i class="fas fa-calendar-alt" style="color: #bfa14a;"></i> First When we Met</h4>
+            <p>The day when our timelines collided – 29th May 2023</p>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h4><i class="fas fa-ring" style="color: #bfa14a;"></i> Nikkah Day</h4>
+            <p>The blessed day when our journey began – 21st Sep 2024</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h4><i class="fas fa-gift" style="color: #bfa14a;"></i> First Anniversary</h4>
+            <p>Celebrating one year of love, respect, and togetherness – 21st Sep 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-5">
+    <div class="container text-center">
+      <h2 class="mb-4 section-title">Beautiful Moments</h2>
+      <div class="row g-3 gallery">
+        <div class="col-md-4 col-6">
+          <div class="gallery-item">
+            <img src="mem1.jpg" class="img-fluid" alt="Memory 1">
+            <div class="gallery-caption">Beautiful Beginning</div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="gallery-item">
+            <img src="mem2.jpg" class="img-fluid" alt="Memory 2">
+            <div class="gallery-caption">Precious Moments</div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="gallery-item">
+            <img src="mem3.jpg" class="img-fluid" alt="Memory 3">
+            <div class="gallery-caption">Together Forever</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="love-quote text-center text-white">
+    <div class="container">
+      <div class="quote-icon">
+        <i class="fas fa-quote-left"></i>
+      </div>
+      <blockquote class="blockquote">
+        <p class="mb-4" style="font-size:1.5rem;">"You are my today and all of my tomorrows."</p>
+        <footer class="blockquote-footer text-white">With <span class="footer-heart">❤️</span> from <span>Muhammad Khalil</span> to <span>Sumaya Khalil</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Made with <span class="footer-heart">❤️</span> by <span>Muhammad Khalil</span></p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Floating Elements Script
+    const heartsContainer = document.querySelector('.hearts');
+    const flowersContainer = document.querySelector('.flowers');
+    const sparklesContainer = document.querySelector('.sparkles');
+    
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+    
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.innerHTML = '❀';
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.fontSize = (Math.random() * 15 + 10) + 'px';
+      flower.style.animationDuration = (Math.random() * 6 + 8) + 's';
+      flowersContainer.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 15000);
+    }
+    
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.innerHTML = '✨';
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.fontSize = (Math.random() * 10 + 8) + 'px';
+      sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      sparkle.style.animationDelay = (Math.random() * 2) + 's';
+      sparklesContainer.appendChild(sparkle);
+
+      setTimeout(() => {
+        sparkle.remove();
+      }, 8000);
+    }
+    
+    setInterval(createHeart, 300);
+    setInterval(createFlower, 500);
+    setInterval(createSparkle, 200);
+
+    // Timeline Animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    function checkTimelineAnimation() {
+      const triggerBottom = window.innerHeight / 5 * 4;
+      
+      timelineItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+        
+        if (itemTop < triggerBottom) {
+          item.classList.add('visible');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', checkTimelineAnimation);
+    checkTimelineAnimation(); // Check on load
+
+    // Progress Bar Animation
+    const progressBars = document.querySelectorAll('.progress-bar');
+    
+    function animateProgressBars() {
+      progressBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        bar.style.width = width + '%';
+      });
+    }
+    
+    // Wait for page to load before animating progress bars
+    window.addEventListener('load', animateProgressBars);
+
+    // Countdown Timer
+    function updateCountdown() {
+      // Set the anniversary date (September 21, 2025)
+      const anniversaryDate = new Date('September 21, 2025 00:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = anniversaryDate - now;
+      
+      // Calculate days, hours, minutes, seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Display the result
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+    }
+    
+    // Update countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
+
+    // Custom Cursor
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+    
+    document.addEventListener('mousemove', (e) => {
+      cursorDot.style.left = e.clientX + 'px';
+      cursorDot.style.top = e.clientY + 'px';
+      
+      cursorOutline.style.left = e.clientX + 'px';
+      cursorOutline.style.top = e.clientY + 'px';
+    });
+    
+    // Interactive cursor effects
+    const hoverElements = document.querySelectorAll('a, button, .gallery-item, .timeline-content');
+    
+    hoverElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursorOutline.style.borderWidth = '1px';
+      });
+      
+      el.addEventListener('mouseleave', () => {
+        cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorOutline.style.borderWidth = '2px';
+      });
+    });
+
+    // Music Control
+    const musicControl = document.querySelector('.music-control');
+    const bgMusic = document.getElementById('bgMusic');
+    let isPlaying = true;
+    
+    musicControl.addEventListener('click', () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicControl.innerHTML = '<i class="fas fa-volume-mute" style="color: #bfa14a;"></i>';
+      } else {
+        bgMusic.play();
+        musicControl.innerHTML = '<i class="fas fa-volume-up" style="color: #bfa14a;"></i>';
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>
